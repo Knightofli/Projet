@@ -1,16 +1,22 @@
 <?php
+/**
+* Controller
+**/
 class Controller{
 
-    public $request;
-    private $vars= array();
-    public $layout= 'default';
-    private $rendered = false;
+    public $request;                // Objet Request
+    private $vars= array();         // Variables à passer à la vue
+    public $layout= 'default';      // Layout à utiliser pour rendre la vue
+    private $rendered = false;      // Si le rendu à été fait ou pas ?
 
     function __construct($request){
-        $this->request = $request;
-
+        $this->request = $request;  // On stock la request dans l'instance
     }
 
+    /**
+    * Permet de rendre une vue
+    * @param $view Fichier à rendre ( chemin depuis view ou nom de la vue)
+    **/
     public function render($view){
         if($this->rendered){ return false;}
         extract($this->vars);
@@ -27,6 +33,11 @@ class Controller{
         $this->rendered = true;
     }
 
+    /**
+    * Permet de passer une ou plusieurs variable à la vue
+    * @param $key nom de la variable Ou tableau de variables
+    * @param $value Valeur de la variable
+    **/
     public function set($key,$value=null){
         if(is_array($key)){
             $this->vars += $key;
@@ -34,9 +45,8 @@ class Controller{
         else {
             $this->vars[$key]= $value;
         }
-        
-
     }
+    
 
 }
 ?>
