@@ -1,0 +1,61 @@
+.button-hover-reveal-wrapper {
+    overflow: hidden;
+    border: 2px solid #1779ba;
+    border-radius: 5000px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    background: #e6e6e6;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.button-hover-reveal-wrapper:hover {
+    border: none;
+    background-color: #1779ba;
+    transition: background-color 0.5s ease;
+}
+
+.button-hover-reveal-wrapper:hover .button-hover-reveal {
+    display: block;
+    font-size: 15px;
+    padding: 17px;
+    color: #fefefe;
+    font-weight: bold;
+}
+
+.button-hover-reveal-wrapper:hover .button-hover-reveal:hover {
+    transition: background-color 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button-hover-reveal-wrapper:hover label {
+    display: none;
+}
+
+.button-hover-reveal-wrapper .button-hover-reveal {
+    display: none;
+    color: #fefefe;
+    width: 50%;
+    z-index: 1;
+}
+
+.button-hover-reveal-wrapper label {
+    padding: 13px;
+    color: #1779ba;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu-cadre li {
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-cadre li:hover {
+    box-shadow: 0 0 0 3px #1779ba;
+}

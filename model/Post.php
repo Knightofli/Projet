@@ -2,4 +2,9 @@
 class Post extends Model{
 
     
+
+        
+
 }
+
+?>

@@ -1,10 +1,16 @@
 <?php
-class Router {
+
+//----------------//
+//  class Router  //
+//----------------//
+
+class Router{
 
     /** 
     * Permet de parser une url
-    * @param $url Url à parser
-    * @return tableau contenant les paramètres
+    * @param $url url à parser
+    * @param $request variable où est stocker les paramètres
+    * @return tableau contenant [0] = controller , [1] = action , [2] = array(paramètres)
     **/
 
     static function parse($url,$request){
@@ -12,14 +18,13 @@ class Router {
         $url = trim($url,'/');
         // $params : tableau contenant les paramètres du lien 
         $params = explode ('/',$url);
-        $request -> controller = $params[0];
-        $request -> action = isset ($params[1]) ? $params[1] : 'index';
+        $request -> controller = !($params[0] === '') ? $params[0] : 'home';
+        $request -> action = isset($params[1]) ? $params[1] : 'index';
         // Définir les autres paramètres dans un tableau secondaire 
         $request -> params = array_slice($params,2);
         return true;
 
     }
-
 }
 
 ?>
